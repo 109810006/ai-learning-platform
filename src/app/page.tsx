@@ -10,103 +10,103 @@ const AILearningPlatform = () => {
   const [selectedModel, setSelectedModel] = useState(null);
 
   const aiCategories = {
-  ml: {
-    title: '機器學習 (Machine Learning)',
-    icon: Brain,
-    color: 'blue',
-    description: '通過數據學習模式，進行預測和分類的傳統演算法',
-    models: {
-      svm: {
-        title: 'SVM (支援向量機)',
-        description: '找到最佳決策邊界來分類數據',
-        difficulty: '中級',
-        applications: ['文本分類', '圖像識別', '生物資訊學']
-      },
-      randomforest: {
-        title: 'Random Forest (隨機森林)',
-        description: '結合多個決策樹的集成學習方法',
-        difficulty: '初級',
-        applications: ['特徵重要性分析', '回歸預測', '分類問題']
-      },
-      kmeans: {
-        title: 'K-Means 聚類',
-        description: '無監督學習，將數據分為K個群組',
-        difficulty: '初級',
-        applications: ['客戶分群', '市場細分', '圖像分割']
-      },
-      linear: {
-        title: '線性/邏輯回歸',
-        description: '最基礎的預測模型，易懂且實用',
-        difficulty: '入門',
-        applications: ['價格預測', '風險評估', '趨勢分析']
+    ml: {
+      title: '機器學習 (Machine Learning)',
+      icon: Brain,
+      color: 'blue',
+      description: '通過數據學習模式，進行預測和分類的傳統演算法',
+      models: {
+        svm: {
+          title: 'SVM (支援向量機)',
+          description: '找到最佳決策邊界來分類數據',
+          difficulty: '中級',
+          applications: ['文本分類', '圖像識別', '生物資訊學']
+        },
+        randomforest: {
+          title: 'Random Forest (隨機森林)',
+          description: '結合多個決策樹的集成學習方法',
+          difficulty: '初級',
+          applications: ['特徵重要性分析', '回歸預測', '分類問題']
+        },
+        kmeans: {
+          title: 'K-Means 聚類',
+          description: '無監督學習，將數據分為K個群組',
+          difficulty: '初級',
+          applications: ['客戶分群', '市場細分', '圖像分割']
+        },
+        linear: {
+          title: '線性/邏輯回歸',
+          description: '最基礎的預測模型，易懂且實用',
+          difficulty: '入門',
+          applications: ['價格預測', '風險評估', '趨勢分析']
+        }
+      }
+    },
+    dl: {
+      title: '深度學習 (Deep Learning)',
+      icon: Cpu,
+      color: 'purple',
+      description: '使用神經網路進行複雜模式識別和生成',
+      models: {
+        cnn: {
+          title: 'CNN (卷積神經網路)',
+          description: '專門處理圖像數據的神經網路架構',
+          difficulty: '高級',
+          applications: ['圖像識別', '醫學影像', '自動駕駛']
+        },
+        rnn: {
+          title: 'RNN/LSTM (遞歸神經網路)',
+          description: '處理序列數據，具有記憶功能',
+          difficulty: '高級',
+          applications: ['語言翻譯', '時間序列', '語音識別']
+        },
+        yolo: {
+          title: 'YOLO (物體偵測)',
+          description: '實時物體偵測和定位系統',
+          difficulty: '專家',
+          applications: ['監控系統', '自動駕駛', '智慧零售']
+        },
+        gan: {
+          title: 'GAN (生成對抗網路)',
+          description: '兩個網路互相競爭來生成逼真數據',
+          difficulty: '專家',
+          applications: ['圖像生成', '數據增強', '藝術創作']
+        }
+      }
+    },
+    ai: {
+      title: '人工智慧應用 (AI Applications)',
+      icon: Eye,
+      color: 'green',
+      description: '實際應用場景中的AI技術整合',
+      models: {
+        nlp: {
+          title: 'NLP (自然語言處理)',
+          description: '讓電腦理解和生成人類語言',
+          difficulty: '中級',
+          applications: ['聊天機器人', '情感分析', '自動摘要']
+        },
+        cv: {
+          title: 'Computer Vision (電腦視覺)',
+          description: '讓電腦看懂圖像和影片',
+          difficulty: '高級',
+          applications: ['人臉識別', '醫學診斷', '品質檢測']
+        },
+        rl: {
+          title: 'Reinforcement Learning (強化學習)',
+          description: '通過獎勵機制學習最佳策略',
+          difficulty: '專家',
+          applications: ['遊戲AI', '機器人控制', '金融交易']
+        },
+        automl: {
+          title: 'AutoML (自動機器學習)',
+          description: '自動化機器學習流程和模型選擇',
+          difficulty: '中級',
+          applications: ['快速原型', '非專家使用', '模型優化']
+        }
       }
     }
-  },
-  dl: {
-    title: '深度學習 (Deep Learning)',
-    icon: Cpu,
-    color: 'purple',
-    description: '使用神經網路進行複雜模式識別和生成',
-    models: {
-      cnn: {
-        title: 'CNN (卷積神經網路)',
-        description: '專門處理圖像數據的神經網路架構',
-        difficulty: '高級',
-        applications: ['圖像識別', '醫學影像', '自動駕駛']
-      },
-      rnn: {
-        title: 'RNN/LSTM (遞歸神經網路)',
-        description: '處理序列數據，具有記憶功能',
-        difficulty: '高級',
-        applications: ['語言翻譯', '時間序列', '語音識別']
-      },
-      yolo: {
-        title: 'YOLO (物體偵測)',
-        description: '實時物體偵測和定位系統',
-        difficulty: '專家',
-        applications: ['監控系統', '自動駕駛', '智慧零售']
-      },
-      gan: {
-        title: 'GAN (生成對抗網路)',
-        description: '兩個網路互相競爭來生成逼真數據',
-        difficulty: '專家',
-        applications: ['圖像生成', '數據增強', '藝術創作']
-      }
-    }
-  },
-  ai: {
-    title: '人工智慧應用 (AI Applications)',
-    icon: Eye,
-    color: 'green',
-    description: '實際應用場景中的AI技術整合',
-    models: {
-      nlp: {
-        title: 'NLP (自然語言處理)',
-        description: '讓電腦理解和生成人類語言',
-        difficulty: '中級',
-        applications: ['聊天機器人', '情感分析', '自動摘要']
-      },
-      cv: {
-        title: 'Computer Vision (電腦視覺)',
-        description: '讓電腦看懂圖像和影片',
-        difficulty: '高級',
-        applications: ['人臉識別', '醫學診斷', '品質檢測']
-      },
-      rl: {
-        title: 'Reinforcement Learning (強化學習)',
-        description: '通過獎勵機制學習最佳策略',
-        difficulty: '專家',
-        applications: ['遊戲AI', '機器人控制', '金融交易']
-      },
-      automl: {
-        title: 'AutoML (自動機器學習)',
-        description: '自動化機器學習流程和模型選擇',
-        difficulty: '中級',
-        applications: ['快速原型', '非專家使用', '模型優化']
-      }
-    }
-  }
-};
+  };
 
   const InteractiveDemo = ({ modelKey, categoryKey }) => {
     const [margin, setMargin] = useState(1);
@@ -157,187 +157,181 @@ const AILearningPlatform = () => {
 
     useEffect(() => {
       if (modelKey === 'kmeans' && categoryKey === 'ml') {
-  return (
-    <div className="space-y-6">
-      <div className="bg-purple-50 p-4 rounded-lg">
-        <h4 className="font-semibold mb-3">K-Means 參數調整</h4>
-        <div>
-          <label className="block text-sm font-medium mb-1">群組數量 (K)</label>
-          <input
-            type="range"
-            min="2"
-            max="5"
-            value={k}
-            onChange={(e) => setK(parseInt(e.target.value))}
-            className="w-full"
-          />
-          <span className="text-sm text-gray-600">K = {k}</span>
-        </div>
-
-        <div className="flex space-x-2 mt-4">
-          <button
-            onClick={() => setIteration(Math.min(iteration + 1, maxIterations))}
-            className="px-3 py-1 bg-purple-600 text-white rounded text-sm hover:bg-purple-700"
-            disabled={iteration >= maxIterations}
-          >
-            下一步迭代
-          </button>
-          <button
-            onClick={() => setIteration(0)}
-            className="px-3 py-1 bg-gray-600 text-white rounded text-sm hover:bg-gray-700"
-          >
-            重置
-          </button>
-          <span className="text-sm text-gray-600 self-center">
-            迭代: {iteration}/{maxIterations}
-          </span>
-        </div>
-      </div>
-
-      <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart data={clusterData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" domain={[0, 10]} />
-            <YAxis dataKey="y" domain={[0, 10]} />
-            <Tooltip />
-            <Scatter dataKey="y" fill={(entry) => entry.color} />
-          </ScatterChart>
-        </ResponsiveContainer>
-      </div>
-
-      <div className="bg-gray-50 p-4 rounded-lg">
-        <h5 className="font-medium mb-2">K-Means 演算法步驟</h5>
-        <ol className="text-sm space-y-1 list-decimal list-inside">
-          <li>隨機選擇 K 個中心點</li>
-          <li>將每個數據點分配到最近的中心點</li>
-          <li>重新計算每個群組的中心點</li>
-          <li>重複步驟 2-3 直到收斂</li>
-        </ol>
-      </div>
-    </div>
-  );
-}
+        setClusterData(generateClusters(k));
+      }
     }, [modelKey, categoryKey, k]);
 
     if (modelKey === 'svm' && categoryKey === 'ml') {
-  return (
-    <div className="space-y-6">
-      <div className="bg-blue-50 p-4 rounded-lg">
-        <h4 className="font-semibold mb-3">調整 SVM 參數</h4>
-        <div>
-          <label className="block text-sm font-medium mb-1">決策邊界邊距 (Margin)</label>
-          <input
-            type="range"
-            min="0.5"
-            max="2"
-            step="0.1"
-            value={margin}
-            onChange={(e) => setMargin(parseFloat(e.target.value))}
-            className="w-full"
-          />
-          <span className="text-sm text-gray-600">邊距: {margin}</span>
+      return (
+        <div className="space-y-6">
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h4 className="font-semibold mb-3">調整 SVM 參數</h4>
+            <div>
+              <label className="block text-sm font-medium mb-1">決策邊界邊距 (Margin)</label>
+              <input
+                type="range"
+                min="0.5"
+                max="2"
+                step="0.1"
+                value={margin}
+                onChange={(e) => setMargin(parseFloat(e.target.value))}
+                className="w-full"
+              />
+              <span className="text-sm text-gray-600">邊距: {margin}</span>
+            </div>
+          </div>
+
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart data={dataPoints}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="x" domain={[0, 10]} />
+                <YAxis dataKey="y" domain={[0, 10]} />
+                <Tooltip formatter={(value, name) => [value, name === 'x' ? 'X座標' : 'Y座標']} />
+                <Scatter dataKey="y" fill={(entry) => entry.color} />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h5 className="font-medium mb-2">SVM 如何工作？</h5>
+            <ul className="text-sm space-y-1">
+              <li>• 找到兩類數據間的最佳分隔線</li>
+              <li>• 最大化決策邊界到最近數據點的距離（邊距）</li>
+              <li>• 支援向量是決定邊界位置的關鍵數據點</li>
+              <li>• 調整邊距可以控制模型的泛化能力</li>
+            </ul>
+          </div>
         </div>
-      </div>
-
-      <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart data={dataPoints}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" domain={[0, 10]} />
-            <YAxis dataKey="y" domain={[0, 10]} />
-            <Tooltip formatter={(value, name) => [value, name === 'x' ? 'X座標' : 'Y座標']} />
-            <Scatter dataKey="y" fill={(entry) => entry.color} />
-          </ScatterChart>
-        </ResponsiveContainer>
-      </div>
-
-      <div className="bg-gray-50 p-4 rounded-lg">
-        <h5 className="font-medium mb-2">SVM 如何工作？</h5>
-        <ul className="text-sm space-y-1">
-          <li>• 找到兩類數據間的最佳分隔線</li>
-          <li>• 最大化決策邊界到最近數據點的距離（邊距）</li>
-          <li>• 支援向量是決定邊界位置的關鍵數據點</li>
-          <li>• 調整邊距可以控制模型的泛化能力</li>
-        </ul>
-      </div>
-    </div>
-  );
-} </div>
       );
     }
 
     if (modelKey === 'kmeans' && categoryKey === 'ml') {
       return (
-        <div className="space-y-6"> {/* K-Means demo code (略) */} </div>
+        <div className="space-y-6">
+          <div className="bg-purple-50 p-4 rounded-lg">
+            <h4 className="font-semibold mb-3">K-Means 參數調整</h4>
+            <div>
+              <label className="block text-sm font-medium mb-1">群組數量 (K)</label>
+              <input
+                type="range"
+                min="2"
+                max="5"
+                value={k}
+                onChange={(e) => setK(parseInt(e.target.value))}
+                className="w-full"
+              />
+              <span className="text-sm text-gray-600">K = {k}</span>
+            </div>
+
+            <div className="flex space-x-2 mt-4">
+              <button
+                onClick={() => setIteration(Math.min(iteration + 1, maxIterations))}
+                className="px-3 py-1 bg-purple-600 text-white rounded text-sm hover:bg-purple-700"
+                disabled={iteration >= maxIterations}
+              >
+                下一步迭代
+              </button>
+              <button
+                onClick={() => setIteration(0)}
+                className="px-3 py-1 bg-gray-600 text-white rounded text-sm hover:bg-gray-700"
+              >
+                重置
+              </button>
+              <span className="text-sm text-gray-600 self-center">
+                迭代: {iteration}/{maxIterations}
+              </span>
+            </div>
+          </div>
+
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart data={clusterData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="x" domain={[0, 10]} />
+                <YAxis dataKey="y" domain={[0, 10]} />
+                <Tooltip />
+                <Scatter dataKey="y" fill={(entry) => entry.color} />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h5 className="font-medium mb-2">K-Means 演算法步驟</h5>
+            <ol className="text-sm space-y-1 list-decimal list-inside">
+              <li>隨機選擇 K 個中心點</li>
+              <li>將每個數據點分配到最近的中心點</li>
+              <li>重新計算每個群組的中心點</li>
+              <li>重複步驟 2-3 直到收斂</li>
+            </ol>
+          </div>
+        </div>
       );
     }
 
     if (modelKey === 'yolo' && categoryKey === 'dl') {
-  return (
-    <div className="space-y-6">
-      <div className="bg-indigo-50 p-4 rounded-lg">
-        <h4 className="font-semibold mb-3">YOLO 偵測參數</h4>
-        <div>
-          <label className="block text-sm font-medium mb-1">信心閾值 (Confidence Threshold)</label>
-          <input
-            type="range"
-            min="0.1"
-            max="1"
-            step="0.05"
-            value={confidence}
-            onChange={(e) => setConfidence(parseFloat(e.target.value))}
-            className="w-full"
-          />
-          <span className="text-sm text-gray-600">閾值: {confidence.toFixed(2)}</span>
-        </div>
-      </div>
-
-      <div className="relative bg-gray-200 h-80 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-100"></div>
-        {visibleDetections.map((detection, idx) => (
-          <div
-            key={idx}
-            className="absolute border-2 border-red-500"
-            style={{
-              left: `${detection.x}px`,
-              top: `${detection.y}px`,
-              width: `${detection.width}px`,
-              height: `${detection.height}px`,
-            }}
-          >
-            <div className="bg-red-500 text-white text-xs px-1 -mt-5">
-              {detection.object} ({(detection.conf * 100).toFixed(0)}%)
+      return (
+        <div className="space-y-6">
+          <div className="bg-indigo-50 p-4 rounded-lg">
+            <h4 className="font-semibold mb-3">YOLO 偵測參數</h4>
+            <div>
+              <label className="block text-sm font-medium mb-1">信心閾值 (Confidence Threshold)</label>
+              <input
+                type="range"
+                min="0.1"
+                max="1"
+                step="0.05"
+                value={confidence}
+                onChange={(e) => setConfidence(parseFloat(e.target.value))}
+                className="w-full"
+              />
+              <span className="text-sm text-gray-600">閾值: {confidence.toFixed(2)}</span>
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-gray-50 p-3 rounded-lg">
-          <h5 className="font-medium mb-2">偵測結果</h5>
-          <ul className="text-sm space-y-1">
-            {visibleDetections.map((d, idx) => (
-              <li key={idx}>
-                {d.object}: {(d.conf * 100).toFixed(1)}%
-              </li>
+          <div className="relative bg-gray-200 h-80 rounded-lg overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-100"></div>
+            {visibleDetections.map((detection, idx) => (
+              <div
+                key={idx}
+                className="absolute border-2 border-red-500"
+                style={{
+                  left: `${detection.x}px`,
+                  top: `${detection.y}px`,
+                  width: `${detection.width}px`,
+                  height: `${detection.height}px`,
+                }}
+              >
+                <div className="bg-red-500 text-white text-xs px-1 -mt-5">
+                  {detection.object} ({(detection.conf * 100).toFixed(0)}%)
+                </div>
+              </div>
             ))}
-          </ul>
-        </div>
+          </div>
 
-        <div className="bg-gray-50 p-3 rounded-lg">
-          <h5 className="font-medium mb-2">YOLO 優勢</h5>
-          <ul className="text-sm space-y-1">
-            <li>• 實時偵測 (30+ FPS)</li>
-            <li>• 單次網路運算</li>
-            <li>• 多物體同時偵測</li>
-            <li>• 準確的位置資訊</li>
-          </ul>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gray-50 p-3 rounded-lg">
+              <h5 className="font-medium mb-2">偵測結果</h5>
+              <ul className="text-sm space-y-1">
+                {visibleDetections.map((d, idx) => (
+                  <li key={idx}>
+                    {d.object}: {(d.conf * 100).toFixed(1)}%
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 p-3 rounded-lg">
+              <h5 className="font-medium mb-2">YOLO 優勢</h5>
+              <ul className="text-sm space-y-1">
+                <li>• 實時偵測 (30+ FPS)</li>
+                <li>• 單次網路運算</li>
+                <li>• 多物體同時偵測</li>
+                <li>• 準確的位置資訊</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-} </div>
       );
     }
 
