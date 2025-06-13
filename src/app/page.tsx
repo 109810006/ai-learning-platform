@@ -1,30 +1,37 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Brain, Cpu, Eye, ChevronRight } from 'lucide-react';
 
-const AILearningPlatform = () => {
-  const [currentView, setCurrentView] = useState('home');
-
-  const aiCategories = {
-    ml: {
+export default function AILearningPlatform() {
+  const aiCategories = [
+    {
+      key: 'ml',
       title: '機器學習 (Machine Learning)',
       icon: Brain,
       color: 'blue',
       description: '通過數據學習模式，進行預測和分類的傳統演算法',
     },
-    dl: {
+    {
+      key: 'dl', 
       title: '深度學習 (Deep Learning)',
       icon: Cpu,
       color: 'purple',
       description: '使用神經網路進行複雜模式識別和生成',
     },
-    ai: {
-      title: '人工智慧應用 (AI Applications)',
+    {
+      key: 'ai',
+      title: '人工智慧應用 (AI Applications)', 
       icon: Eye,
       color: 'green',
       description: '實際應用場景中的AI技術整合',
     }
+  ];
+
+  const colorClasses = {
+    blue: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',
+    purple: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
+    green: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
   };
 
   return (
@@ -44,17 +51,11 @@ const AILearningPlatform = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
-          {Object.entries(aiCategories).map(([key, category]) => {
+          {aiCategories.map((category) => {
             const IconComponent = category.icon;
-            const colorClasses = {
-              blue: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',
-              purple: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
-              green: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
-            };
-
             return (
               <div
-                key={key}
+                key={category.key}
                 className={`bg-gradient-to-br ${colorClasses[category.color]} p-8 rounded-xl text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl`}
               >
                 <IconComponent size={48} className="mb-4" />
@@ -82,6 +83,4 @@ const AILearningPlatform = () => {
       </main>
     </div>
   );
-};
-
-export default AILearningPlatform;
+}
