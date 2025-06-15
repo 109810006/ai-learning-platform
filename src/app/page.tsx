@@ -1,3 +1,5 @@
+"use client";
+
 import { Brain, Cpu, Eye, ChevronRight, PlayCircle, BookOpen, Zap, TrendingUp, Settings, BarChart3, Network, Target, Clock, Users, Award } from 'lucide-react';
 import { useState } from 'react';
 
