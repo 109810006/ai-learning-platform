@@ -150,3 +150,4 @@ export default function Home() {
   const closeModal = (): void => {
     setSelectedModel(null);
   };
+}
