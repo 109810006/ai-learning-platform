@@ -95,7 +95,7 @@ export default function Home() {
     }
   ];
 
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyColor = (difficulty: string) => {
     switch(difficulty) {
       case '入門': return 'bg-green-100 text-green-800';
       case '初級': return 'bg-blue-100 text-blue-800';
